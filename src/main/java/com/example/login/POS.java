@@ -5,8 +5,6 @@ import javafx.scene.layout.GridPane;
 
 public class POS {
 
-
-
     public static Scene POS;
 
     public static Scene getPOSScene(){

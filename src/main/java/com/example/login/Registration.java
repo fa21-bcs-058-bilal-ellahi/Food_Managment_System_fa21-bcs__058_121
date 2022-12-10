@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -40,6 +41,14 @@ public class Registration {
 
                 Label pass_label = new Label("Pass");
                 TextField pass_text = new TextField();
+
+                Label admin_pass_label = new Label("Admin Access Password");
+                PasswordField pass_text_admin = new PasswordField();
+
+                Text check = new Text();
+                root.add(check,1,4);
+
+
 
                 /*Label dob = new Label("Date of Birth");
                 TextField dob_text = new TextField();
@@ -73,6 +82,9 @@ public class Registration {
                 root.add(name_text, 1, 1);
                 root.add(pass_label, 0, 2);
                 root.add(pass_text, 1, 2);
+                root.add(admin_pass_label, 0, 3);
+                root.add(pass_text_admin,1,3);
+
 /*
                 root.add(dob, 0, 2);
                 //root.add(dob_text,1,2);
@@ -112,14 +124,21 @@ public class Registration {
                 register.setOnAction(actionEvent -> {
                         try {
 
-                                FileWriter fileWriter = new FileWriter("registered_users.txt",true);
-                                fileWriter.write(name_text.getText() +"\t" + pass_text.getText()+"\n");
-                                fileWriter.close();
-                                   System.out.println("www");
+                                String admin_pass = pass_text_admin.getText();
+                                if (admin_pass.equals("1234")) {
+                                        FileWriter fileWriter = new FileWriter("registered_users.txt", true);
+                                        fileWriter.write(name_text.getText() + "\t" + pass_text.getText() + "\n");
+                                        fileWriter.close();
+                                        System.out.println("fileWriter works");
+
                                         Dialog();
 
 
-
+                                }
+                                else {
+                                        check.setText("Invalid Admin Password");
+                                        System.out.println("fileWriter\\if  works");
+                                }
                         } catch (IOException e) {
                                 throw new RuntimeException(e);
                         }
@@ -144,6 +163,7 @@ public class Registration {
                         @Override
                         public void handle(WindowEvent windowEvent) {
                                 Main.stage.setScene(Main.Main_scene);
+
 
                         }
                 };

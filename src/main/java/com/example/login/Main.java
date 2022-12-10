@@ -80,14 +80,18 @@ public class Main extends Application {
                     check.setText("Username or Password is empty");
                     return;
                 }
-
+            //oooooooString [] file={};
             try {
 
                 FileReader fileReader = new FileReader("registered_users.txt");
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
                 while ((lineReader = bufferedReader.readLine()) != null) {
 
-                    if (lineReader.contains(username+"\t"+ password+"\n")) ;
+                    //file = lineReader.split("\r");
+                    //lineReader.equals(username+"\t"+ password+"\n")
+                    //file[0].equals(username) && file[1].equals(password)
+
+                    if ( lineReader.equals(username+"\t"+ password+"\n")) ;
                     {
 
                         System.out.println("inside reader");

@@ -25,15 +25,4 @@ public class POS {
         getPOSScene();
     }
 }
-    // public static Scene POSt;
 
- /*   public static Parent psVi() {
-        GridPane root = new GridPane();
-        root.add(new Label("abc"),0,0);
-        Scene POS = new Scene(root, 450, 600);
-
-
-        return root;
-
-    }
-}*/

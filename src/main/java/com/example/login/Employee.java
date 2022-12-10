@@ -1,7 +1,28 @@
 package com.example.login;
 
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
+
 public class Employee {
-    String name, id;
+    public static Scene Employee_scene;
+    public static Scene getEmployee_scene(){
+        GridPane root = new GridPane();
+        Scene Employee_Scene = new Scene(root);
+
+        return Employee_scene;
+
+    }
+
+    public static void main(String[] args) {
+
+        getEmployee_scene();
+    }
+}
+
+
+
+
+   /* String name, id;
     int cnic,phone_number;
 
 
@@ -73,4 +94,4 @@ public class Employee {
 
 
     }
-
+*/

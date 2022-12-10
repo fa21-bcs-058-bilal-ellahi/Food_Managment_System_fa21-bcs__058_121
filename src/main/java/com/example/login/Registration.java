@@ -113,10 +113,10 @@ public class Registration {
                         try {
 
                                 FileWriter fileWriter = new FileWriter("registered_users.txt",true);
-                                fileWriter.write(name_text.getText() +":"+pass_text.getText()+"\n");
+                                fileWriter.write(name_text.getText() +"\t" + pass_text.getText()+"\n");
                                 fileWriter.close();
-
-                                Dialog();
+                                   System.out.println("www");
+                                        Dialog();
 
 
 

@@ -1,5 +1,7 @@
 package com.example.login;
 
+import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -20,9 +22,12 @@ public class InsideScene {
 
         Button POSBtn = new Button("POS");
         POSEventHandler(POSBtn);
-        System.out.println("DBSB3272");
 
+        Button Management_button = new Button("Management");
+       Management_EventHandler(Management_button);
 
+       Button Employeebtn = new Button("Employees");
+       Employee_EventHandler(Employeebtn);
 
 
         Button log_Out = new Button("Log-Out");
@@ -30,21 +35,41 @@ public class InsideScene {
             Main.stage.setScene(Main.Main_scene);
         });
 
+        //Group group_root = new Group();
         GridPane gridPane = new GridPane();
-        gridPane.add(welcomeText, 0, 0);
-        gridPane.add(log_Out, 0, 1);
-        gridPane.add(POSBtn,0,2);
+        gridPane.setPadding(new Insets(50,50,50,50));
+        gridPane.add(welcomeText, 2, 0,3,1);
+        gridPane.add(log_Out, 5, 0);
+        gridPane.add(POSBtn,1,3);
+        gridPane.add(Management_button,2,3);
+        gridPane.add(Employeebtn,1,4);
 
         return new Scene(gridPane, 750, 500);
+    }
+
+
+    public static void Management_EventHandler (Button Management){
+
+        Management.setOnAction(pos ->{
+            Main.stage.setScene(com.example.login.POS.getPOSScene());
+        });
     }
 
     public static void POSEventHandler (Button POSBtn){
 
         POSBtn.setOnAction(pos ->{
-            System.out.println("DBSB3272ffff");
-          Main.stage.setScene(com.example.login.POS.getPOSScene());
+          Main.stage.setScene(Management_class.getManagement_scene());
         });
     }
+
+    public static void Employee_EventHandler (Button  Employeebtn){
+
+        Employeebtn.setOnAction(pos ->{
+            Main.stage.setScene(Employee.getEmployee_scene());
+        });
+    }
+
+
 
     public void start(Stage stage) throws Exception {
         POS.POS = POS.getPOSScene();
@@ -53,8 +78,5 @@ public class InsideScene {
         stage.show();
 
         Loggedin();
-
-
-
     }
 }

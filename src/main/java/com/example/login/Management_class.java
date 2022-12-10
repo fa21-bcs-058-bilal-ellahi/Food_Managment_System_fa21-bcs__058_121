@@ -3,6 +3,7 @@ package com.example.login;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 
 public class Management_class {
 
@@ -10,9 +11,10 @@ public class Management_class {
 
     public static Scene getManagement_scene(){
         GridPane root = new GridPane();
-        Scene Managment_scene = new Scene(root);
+        Scene Managment_scene = new Scene(root,600,500);
 
         Button backbtn = new Button("Back");
+        Back_to_Previous_Page(backbtn);
         root.add(backbtn,1,1);
 
 
@@ -27,11 +29,10 @@ public class Management_class {
 
     }
 
-    public static void main(String[] args) {// NW
+    public static void main(String[] args) {
         Main.Main_scene = Mscene;
-      getManagement_scene();
-        Main.stage.setScene(getManagement_scene());
-        Main.stage.show();
+        getManagement_scene();
+       
 
     }
 }

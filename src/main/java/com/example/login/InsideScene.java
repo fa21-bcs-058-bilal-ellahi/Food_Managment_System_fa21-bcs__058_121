@@ -1,6 +1,7 @@
 package com.example.login;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,6 +13,8 @@ import javafx.stage.Stage;
 
 public class InsideScene {
 //    public static Stage INSIDEstage;
+
+
 
 
     public static Scene Loggedin;
@@ -44,21 +47,22 @@ public class InsideScene {
         gridPane.add(Management_button,2,3);
         gridPane.add(Employeebtn,1,4);
 
-        return new Scene(gridPane, 750, 500);
+
+        return new Scene(gridPane,600,500);
     }
 
 
     public static void Management_EventHandler (Button Management){
 
         Management.setOnAction(pos ->{
-            Main.stage.setScene(com.example.login.POS.getPOSScene());
+            Main.stage.setScene(Management_class.getManagement_scene());
         });
     }
 
     public static void POSEventHandler (Button POSBtn){
 
         POSBtn.setOnAction(pos ->{
-          Main.stage.setScene(Management_class.getManagement_scene());
+            Main.stage.setScene(com.example.login.POS.getPOSScene());
         });
     }
 
@@ -73,6 +77,7 @@ public class InsideScene {
 
     public void start(Stage stage) throws Exception {
         POS.POS = POS.getPOSScene();
+        //Employee.Employee_scene = Employee.getEmployee_scene();
         Main.stage = stage;
         stage.setScene(POS.getPOSScene());
         stage.show();

@@ -91,7 +91,7 @@ public class Main extends Application {
                     //lineReader.equals(username+"\t"+ password+"\n")
                     //file[0].equals(username) && file[1].equals(password)
 
-                    if ( lineReader.equals(username+"\t"+ password+"\n")) ;
+                    if ( lineReader.equals(username+"\t"+ password));
                     {
 
                         System.out.println("inside reader");

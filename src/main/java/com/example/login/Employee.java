@@ -1,21 +1,34 @@
 package com.example.login;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+
 
 public class Employee {
     public static Scene Employee_scene;
     public static Scene getEmployee_scene(){
         GridPane root = new GridPane();
-        Scene Employee_Scene = new Scene(root);
+        Scene Employee_Scene = new Scene(root,600,500);
 
-        return Employee_scene;
+        //commiting?
+        Button backbtn = new Button("Back");
+        com.example.login.Management_class.Back_to_Previous_Page(backbtn);
+        root.add(backbtn,1,1);
+
+        return Employee_Scene;
 
     }
 
+
     public static void main(String[] args) {
 
+
+        Main.Main_scene= Employee_scene;
         getEmployee_scene();
+
+
     }
 }
 

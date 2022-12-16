@@ -30,7 +30,7 @@ public class POS {
         Button backbtn = new Button("Back");
         com.example.login.Management_class.Back_to_Previous_Page(backbtn);
         root.add(backbtn,1,10);
-        root.setStyle("-fx-background-image: url(bg_ps_5.jpg); -fx-background-repeat: no-repeat; -fx-background-size: 1220 1000 ;   -fx-background-position: center center;");
+        root.setStyle("-fx-background-image: url(bg_ps_5.jpg); -fx-background-repeat: no-repeat; -fx-background-size: 1300 1000 ;   -fx-background-position: center center;");
 Main.stage.setTitle("POS");
 
 
@@ -190,33 +190,47 @@ Main.stage.setTitle("POS");
 //////////////////////////////////////////////////////////
 
             VBox tablev = new VBox();
-            root.add(tablev,8,4,3,7);
+            root.add(tablev,7,4,7,7);
 
 
 
             Eggs_btn_in_pos.setOnAction(actionEvent -> {
-                int i = 0;
-                TextField textField = new TextField();
-                Text text2 = new Text("1");
-                text2.setFill(Color.WHITE);
-                HBox tableh = new HBox();
-                foodList.add("Eggs");
-                Text text = new Text("Eggs");
-                text.setFill(Color.WHITE);
-                //tableh.getChildren().add(text);
-                tablev.getChildren().add(tableh);
+                if(!foodList.contains("Eggs")) {
+                    Text text2 = new Text("1");
 
-                Button plus = new Button("+");
+                    text2.setFill(Color.WHITE);
+                    HBox tableh = new HBox();
+                    foodList.add("Eggs");
+                    Text text = new Text("Eggs");
+                    text.setFill(Color.WHITE);
+                    //tableh.getChildren().add(text);
+                    tablev.getChildren().add(tableh);
 
-                plus.setOnAction(pl-> {
+                    Button plus = new Button("+");
 
-                });
-                Button minus = new Button("-");
+                    plus.setOnAction(pl -> {
+                        String m = text2.getText();
+                        //Integer.parseInt(m);
+                        int x = Integer.parseInt(m);
+                        x+=1;
+                        text2.setText(String.valueOf(x));
+                    });
+                    Button minus = new Button("-");
+                    minus.setOnAction(pl -> {
+                        String m = text2.getText();
+                        //Integer.parseInt(m);
+                        int x = Integer.parseInt(m);
+                        if(x>0){
+                        x-=1;
+                        text2.setText(String.valueOf(x));
+                        }
 
-                tableh.getChildren().addAll(text,minus,text2,plus);
+                    });
 
-                tableh.setSpacing(20);
+                    tableh.getChildren().addAll(text, minus, text2, plus);
 
+                    tableh.setSpacing(10);
+                }
 
 
                 //if(){}
@@ -231,12 +245,33 @@ Main.stage.setTitle("POS");
                 //tableh.getChildren().add(text);
                 tablev.getChildren().add(tableh);
 
+
+
+
+                Text text2 = new Text("1");
+
                 Button plus = new Button("+");
+
+                plus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    x+=1;
+                    text2.setText(String.valueOf(x));
+                });
                 Button minus = new Button("-");
+                minus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    if(x>0){
+                        x-=1;
+                        text2.setText(String.valueOf(x));
+                    }
 
-                tableh.getChildren().addAll(minus,text,plus);
-
-                tableh.setSpacing(20);
+                });
+                tableh.setSpacing(10);
+                tableh.getChildren().addAll(text, minus, text2, plus);
 
                 //if(){}
             });
@@ -250,14 +285,32 @@ Main.stage.setTitle("POS");
                 //tableh.getChildren().add(text);
                 tablev.getChildren().add(tableh);
 
+
+                Text text2 = new Text("1");
+
                 Button plus = new Button("+");
+
+                plus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    x+=1;
+                    text2.setText(String.valueOf(x));
+                });
                 Button minus = new Button("-");
+                minus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    if(x>0){
+                        x-=1;
+                        text2.setText(String.valueOf(x));
+                    }
 
-                tableh.getChildren().addAll(minus,text,plus);
+                });
+                tableh.setSpacing(10);
+                tableh.getChildren().addAll(text, minus, text2, plus);
 
-                tableh.setSpacing(20);
-
-                //if(){}
             });
 
             pancakes_btn_in_pos.setOnAction(actionEvent -> {
@@ -269,12 +322,30 @@ Main.stage.setTitle("POS");
                 //tableh.getChildren().add(text);
                 tablev.getChildren().add(tableh);
 
+                Text text2 = new Text("1");
+
                 Button plus = new Button("+");
+
+                plus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    x+=1;
+                    text2.setText(String.valueOf(x));
+                });
                 Button minus = new Button("-");
+                minus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    if(x>0){
+                        x-=1;
+                        text2.setText(String.valueOf(x));
+                    }
 
-                tableh.getChildren().addAll(minus,text,plus);
-
-                tableh.setSpacing(20);
+                });
+                tableh.setSpacing(10);
+                tableh.getChildren().addAll(text, minus, text2, plus);
 
                 //if(){}
             });
@@ -288,12 +359,31 @@ Main.stage.setTitle("POS");
                 //tableh.getChildren().add(text);
                 tablev.getChildren().add(tableh);
 
+
+                Text text2 = new Text("1");
+
                 Button plus = new Button("+");
+
+                plus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    x+=1;
+                    text2.setText(String.valueOf(x));
+                });
                 Button minus = new Button("-");
+                minus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    if(x>0){
+                        x-=1;
+                        text2.setText(String.valueOf(x));
+                    }
 
-                tableh.getChildren().addAll(minus,text,plus);
-
-                tableh.setSpacing(20);
+                });
+                tableh.setSpacing(10);
+                tableh.getChildren().addAll(text, minus, text2, plus);
 
                 //if(){}
             });
@@ -306,14 +396,30 @@ Main.stage.setTitle("POS");
                 //tableh.getChildren().add(text);
                 tablev.getChildren().add(tableh);
 
+                Text text2 = new Text("1");
+
                 Button plus = new Button("+");
+
+                plus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    x+=1;
+                    text2.setText(String.valueOf(x));
+                });
                 Button minus = new Button("-");
+                minus.setOnAction(pl -> {
+                    String m = text2.getText();
+                    //Integer.parseInt(m);
+                    int x = Integer.parseInt(m);
+                    if(x>0){
+                        x-=1;
+                        text2.setText(String.valueOf(x));
+                    }
 
-                tableh.getChildren().addAll(minus,text,plus);
-
-                tableh.setSpacing(20);
-
-                //if(){}
+                });
+                tableh.setSpacing(10);
+                tableh.getChildren().addAll(text, minus, text2, plus);
             });
 
         });

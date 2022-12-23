@@ -29,10 +29,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         Main.stage = stage;
         stage.setTitle("Login Page");
-
         Main_scene = LoginPage();
-
-
         stage.setScene(LoginPage());
         stage.show();
 
@@ -166,6 +163,11 @@ public class Main extends Application {
                 System.out.println("match");
             }
             else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login Error");
+                alert.setHeaderText("Login Error");
+                alert.setContentText("Your username or password is incorrect");
+                alert.showAndWait();
 
                 check.setText("Username or Password is Incorrect");
                 check.setStyle("-fx-text-fill:white; -fx-font-size: 14px;");

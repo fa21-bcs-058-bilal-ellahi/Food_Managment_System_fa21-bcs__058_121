@@ -18,16 +18,10 @@ public class InsideScene {
 
     public static Scene Loggedin(String username) {
 
-
-
-
         Text welcomeText = new Text("Welcome, " +username+ "!");//+ CommonData.username
         welcomeText.setFont(new Font(40));
         welcomeText.setStyle("-fx-background-color: black; -fx-text-fill: white;");
         welcomeText.setFill(Color.WHITE);
-
-
-
 
         Button POS_Btn = new Button("Order");
         POS_Btn.setMinWidth(175);
@@ -35,7 +29,6 @@ public class InsideScene {
         POSEventHandler(POS_Btn);
         Main.stage.setTitle("Hello User");
         POS_Btn.setStyle("-fx-background-color: rgb(255,182,193);");
-
 
         Button Management_button = new Button("Management");
         Management_button.setMinWidth(175);
@@ -121,7 +114,7 @@ public class InsideScene {
     public static void POSEventHandler (Button POSBtn){
 
         POSBtn.setOnAction(pos ->{
-            Main.stage.setScene(com.example.login.POS.getPOSScene());
+            Main.stage.setScene(com.example.login.POS_2.getPOSScene2());
         });
     }
 

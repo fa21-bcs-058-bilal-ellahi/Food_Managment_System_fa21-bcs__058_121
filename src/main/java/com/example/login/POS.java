@@ -26,13 +26,13 @@ public class POS {
     public static Scene getPOSScene(){
         GridPane root = new GridPane();
        // BorderPane root = new BorderPane();
-        Scene POS = new Scene(root,1200,900);
+        Scene POS = new Scene(root,1400,900,true);
         Button backbtn = new Button("Back");
         com.example.login.Management_class.Back_to_Previous_Page(backbtn);
         root.add(backbtn,1,10);
-        root.setStyle("-fx-background-image: url(bg_ps_5.jpg); -fx-background-repeat: no-repeat; -fx-background-size: 1300 1000 ;   -fx-background-position: center center;");
-Main.stage.setTitle("POS");
-
+       // root.setStyle("-fx-background-image: url(bg_ps_5.jpg); -fx-background-repeat: no-repeat; -fx-background-size: 1300 1000 ;   -fx-background-position: center center;");
+      root.setBackground(Background.fill(Color.gray(.3)));
+        Main.stage.setTitle("POS");
 
 
         Button Menu_btn_in_pos = new Button("Menu");
@@ -45,6 +45,9 @@ Main.stage.setTitle("POS");
         root.add(More_btn_in_pos,1,4);
 
 
+        Button Change_color = new Button("change");
+
+        root.add(Change_color,9,1);
 
 
         Button Breakfast_btn_in_pos = new Button("Breakfast");
@@ -898,6 +901,10 @@ Main.stage.setTitle("POS");
         return POS;
     }
 
+
+    public static void Dishes(){
+
+    }
 }
    /* Text Order_text = new Text("Order");
     Text Cashier_btn = new Text("Order");

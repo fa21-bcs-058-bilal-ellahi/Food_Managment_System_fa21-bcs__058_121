@@ -51,6 +51,7 @@ public class Registration {
                 Back_to_Main_Page(backbtn);
                 backbtn.setStyle("-fx-background-color: orange;");
 
+                Main.stage.setTitle("Sign Up!");
 
 
 

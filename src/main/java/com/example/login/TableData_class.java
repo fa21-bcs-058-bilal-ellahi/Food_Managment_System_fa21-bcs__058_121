@@ -6,17 +6,49 @@ public class TableData_class {
     int quantity;
     double price;
 
+    int invoice;
+
     public TableData_class() {
         this.id = 0;
         this.name = "";
         this.quantity = 0;
         this.price = 0.0;
+        this.invoice = 0;
     }
+    public TableData_class(String name) {
+        this();
+        this.name = name;
+    }
+
+
     public TableData_class(int id, String name, int quantity, double price) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
-        this.price = price;
+        this.price = Double.parseDouble(String.format("%.2f",price));
+        this.invoice = invoice;
+
+    }
+
+    public int getInvoice() {
+        return invoice;
+    }
+
+    public void setInvoice(int invoice) {
+        this.invoice = invoice;
+    }
+
+    public TableData_class(int id, String name, int quantity, double price, int invoice) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.price = Double.parseDouble(String.format("%.2f",price));
+        this.invoice = invoice;
+
+    }  public TableData_class( int invoice) {
+        this();
+        this.invoice = invoice;
+
     }
 
     public int getId() {
@@ -44,11 +76,13 @@ public class TableData_class {
     }
 
     public Double getPrice() {
-        return price;
+
+        return Double.parseDouble(String.format("%.2f",price));
     }
 
     public void setPrice(Double price) {
-        this.price = price;
+
+        this.price = Double.parseDouble(String.format("%.2f",price));
     }
 
     @Override
@@ -57,7 +91,15 @@ public class TableData_class {
 
                 "\t"+ name  +
                 "\t\t" + quantity +
-                "\t\t" + price+"\n";
+                "\t\t" + String.format("%.2f",price)+"\n";
+    }
+
+
+    @Override
+    public boolean equals(Object p) {
+        if(p instanceof TableData_class t)
+            return t.getName().equals(this.name);
+        return false;
     }
 
 }

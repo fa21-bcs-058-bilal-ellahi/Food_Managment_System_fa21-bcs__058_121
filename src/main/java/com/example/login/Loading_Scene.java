@@ -1,14 +1,8 @@
 package com.example.login;
 
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 
 public class Loading_Scene {
     public static Scene Load_scene;
@@ -38,7 +32,7 @@ public class Loading_Scene {
 
         signup_btn.setOnAction(actionEvent ->{
 
-            Main.stage.setScene(Main.LoginPage());
+            // Main.stage.setScene(Main.LoginPage());
         });
 
     }

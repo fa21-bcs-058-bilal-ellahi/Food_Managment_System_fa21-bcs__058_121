@@ -1,12 +1,9 @@
 package com.example.login;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import com.example.login.Firebase.FirebaseInitialize;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -16,19 +13,23 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Registration {
 
         public static Scene Registration;
 
+
+
+        static RadioButton manager_radio = new RadioButton("Manager");
+        static RadioButton cashier_radio = new RadioButton("Cashier");
+        static String manager = manager_radio.getText();
+        static String cashier = cashier_radio.getText();
+
         public static Scene Registration() {
 
 
                 GridPane root = new GridPane();
-                //Group root = new Group();
 
                 root.setAlignment(Pos.CENTER);
                 root.setHgap(20);
@@ -54,111 +55,164 @@ public class Registration {
                 Main.stage.setTitle("Sign Up!");
 
 
-
-
-                /*Label dob = new Label("Date of Birth");
-                TextField dob_text = new TextField();
-                DatePicker datePicker = new DatePicker();
-                Label gender = new Label("Gender");
-                ToggleGroup gender_grp = new ToggleGroup();
-                RadioButton male = new RadioButton("male");
-                male.setToggleGroup(gender_grp);
-                RadioButton female = new RadioButton("female");
-                female.setToggleGroup(gender_grp);
-                Label interests = new Label("Your Interests: ");
-                CheckBox checkBox0 = new CheckBox("Java");
-                checkBox0.setIndeterminate(false);
-                CheckBox checkBox1 = new CheckBox("Python");
-                checkBox1.setIndeterminate(false);
-                Label educated = new Label("Your Education");
-                ListView listView = new ListView<>();
-                ObservableList data = FXCollections.observableArrayList();
-                data.addAll("Intemediate", "Bachelors", "Masters", "PHD");
-                listView.setItems(data);
-                listView.setPrefSize(100, 10);
-                Label location = new Label("Location");
-                ChoiceBox loction_box = new ChoiceBox();
-                loction_box.getItems().addAll("Lahore", "Abbottabad", "Islamabad");*/
-
-
                 Button register = new Button("Register");
                 Text welcometext = new Text(1, 1, "Sign up your Account");
                 welcometext.setFont(Font.font(22));
                 welcometext.setFill(Color.WHITE);
+                root.setStyle("-fx-background-image: url(login.jpg); -fx-background-repeat: no-repeat; -fx-background-size: 1500 800;   -fx-background-position: center center;");
+
+                pass_label.setStyle("-fx-text-fill:white; -fx-font-size:12");
+                name_label.setStyle("-fx-text-fill:white; -fx-font-size:12");
+                admin_pass_label.setStyle("-fx-text-fill:white; -fx-font-size:12");
+                register.setStyle("-fx-background-color: rgb(201,251,251);");
+
+
+                Label Admin_or_Employee = new Label("Employee Type");
+                ToggleGroup Admin_or_Employee_grp = new ToggleGroup();
+
+                manager_radio.setToggleGroup(Admin_or_Employee_grp);
+                cashier_radio.setToggleGroup(Admin_or_Employee_grp);
+
+                Admin_or_Employee.setStyle("-fx-text-fill:white; -fx-font-size:12");
+                manager_radio.setStyle("-fx-text-fill:white; -fx-font-size:12");
+                cashier_radio.setStyle("-fx-text-fill:white; -fx-font-size:12");
+
+
+
                 root.add(welcometext, 0, 0, 2, 1);
                 root.add(name_label, 0, 1);
                 root.add(name_text, 0, 2,2, 1);
                 root.add(pass_label, 0, 3);
                 root.add(pass_text, 0, 4,2, 1);
-                root.add(admin_pass_label, 0, 5);
-                root.add(pass_text_admin,0,6,2, 1);
-                root.add(register, 1, 8);
-                root.add(check,0,7,2,1);
-                root.add(backbtn,0,8);
-                root.setStyle("-fx-background-image: url(login.jpg); -fx-background-repeat: no-repeat; -fx-background-size: 1350 650;   -fx-background-position: center center;");
+                root.add(Admin_or_Employee,0,5);
+                root.add(manager_radio,0,6);
+                root.add(cashier_radio,1,6);
+                root.add(admin_pass_label, 0, 7);
+                root.add(pass_text_admin,0,8,2, 1);
+                root.add(check,0,9,2,1);
+                root.add(backbtn,0,10);
+                root.add(register, 1, 10);
 
-                pass_label.setStyle("-fx-text-fill:white; -fx-font-size:12");//
-                name_label.setStyle("-fx-text-fill:white; -fx-font-size:12");//
-                admin_pass_label.setStyle("-fx-text-fill:white; -fx-font-size:12");//
-                register.setStyle("-fx-background-color: rgb(201,251,251);");
+                add_Register_EventHandler(register,manager_radio,cashier_radio,pass_text_admin,name_text,pass_text,check);
+
+                return new Scene(root,900, 700);
+        }
 
 
-/*
-                root.add(dob, 0, 2);
-                //root.add(dob_text,1,2);
-                root.add(datePicker, 1, 2);
-                root.add(gender, 0, 4);
-                root.add(male, 1, 4);
-                root.add(female, 2, 4);
-                root.add(interests, 0, 5);
-                root.add(checkBox0, 1, 5);
-                root.add(checkBox1, 2, 5);
-                root.add(educated, 0, 7);
-                root.add(listView, 1, 7);
-                root.add(location, 0, 9);
-                root.add(loction_box, 1, 9);*/
-                //  root.add(gender_grp,1,3);
-               /* RegStage.setScene(scene);
-                RegStage.show();*/
-              /*  Tooltip tooltip = new Tooltip("Some text");
-                Button button = new Button("Upload"); //can also be hyperlinked
-                button.setTooltip(tooltip);
-                root.add(button,
-                        3,
-                        3);*/
-                //Button Register = new Button("Register");
 
+
+
+        public static void add_Register_EventHandler(Button register,RadioButton manager_radio, RadioButton cashier_radio,
+                                                     TextField pass_text_admin ,TextField name_text,TextField pass_text, Text check) {
                 register.setOnAction(actionEvent -> {
                         try {
+                                manager = manager_radio.getText();
+                                cashier = cashier_radio.getText();
+                                check.setFill(Color.WHITE);
+
+                                /*System.out.println(manager);
+                                System.out.println(cashier);*/
+
+                                String username = name_text.getText();
+                                String password  = pass_text.getText();
+
+
+
+
+
+
                                 String admin_pass = pass_text_admin.getText();
-                                if (admin_pass.equals("1234")) {
-                                        FileWriter fileWriter = new FileWriter("registered_users.txt", true);
-                                        fileWriter.write(name_text.getText() + "\t" + pass_text.getText() + "\n");
-                                        fileWriter.close();
-                                        System.out.println("fileWriter works");
-                                        Dialog();
+
+                                if (admin_pass.equals("1234")){
+
+                                        try {
+                                                BufferedReader reader = new BufferedReader(new FileReader("registered_users.txt"));
+                                                {
+                                                        String line;
+                                                        while ((line = reader.readLine()) != null) {
+                                                                // Split the line into fields
+                                                                String[] fields = line.split("\t");
+                                                                // Check if the first field matches the user-entered username
+                                                                if (fields[0].equals(name_text.getText())) {
+                                                                        check.setText("Username already exists");
+                                                                        check.setFill(Color.WHITE);
+                                                                        name_text.setStyle("-fx-text-inner-color: red;");
+                                                                        System.out.println("Username already exists");
+                                                                        System.out.println(fields[0]);
+
+                                                                        reader.close();
+                                                                }}}} catch (FileNotFoundException e) {
+                                                throw new RuntimeException();
+                                        }
+
                                 }
+
+                                 if (admin_pass.equals("1234") && cashier_radio.isSelected()) {
+                                         if (pass_text.getText().length() > 6) {
+                                                 FileWriter fileWriter = new FileWriter("registered_users.txt", true);
+                                                 fileWriter.write(name_text.getText() + "\t" + pass_text.getText() +
+                                                         "\t" + cashier_radio.getText() + "\n");
+                                                 fileWriter.close();
+
+
+                                                 System.out.println("fileWriter cashier works");
+                                                 Dialog(cashier_radio.getText());
+                                         }
+                                 else {
+                                                 System.out.println("m");
+                                                 check.setText("Password must be > 6");
+                                                 pass_text.setStyle("-fx-text-inner-color: red;");
+
+                                         }
+                                 }
+
+                                 if (admin_pass.equals("1234") && manager_radio.isSelected()) {
+                                        if (pass_text.getText().length() > 6) {
+                                                FileWriter fileWriter = new FileWriter("registered_users.txt", true);
+                                                fileWriter.write(name_text.getText() + "\t" + pass_text.getText()
+                                                        + "\t" + manager_radio.getText() + "\n");
+                                                fileWriter.close();
+
+
+                                                System.out.println("fileWriter manager works");
+                                                Dialog(manager_radio.getText());
+                                        }
+                                        else {
+                                                System.out.println("m");
+                                                check.setText("Password must be > 6");
+                                                pass_text.setStyle("-fx-text-inner-color: red;");
+
+                                        }
+                                }
+
                                 else {
-                                        String username = name_text.getText();
-                                        String password = pass_text.getText();
 
 
                                         if (username == null || password == null || username.equals("") || password.equals("")) {
                                                 check.setText("Username or Password is empty");
                                                 return;
-                                        } else {
-                                                check.setText("Invalid Admin Password");
+                                        }
+                                        else {
+                                                check.setText("Invalid Admin Password or Option is Empty");
                                                 System.out.println("fileWriter\\if  works");
                                         }
+
                                 }
+
+                                FirebaseInitialize.makeUser(username,password,manager,cashier);
+
                         } catch (IOException e) {
-                                throw new RuntimeException(e);
+                                throw new RuntimeException();
+
                         }
+
+
+
                 });
-                return new Scene(root,800, 600);
+
         }
 
-        public static void Back_to_Main_Page(Button backbtn){
+                public static void Back_to_Main_Page(Button backbtn){
                 backbtn.setOnAction(actionEvent -> {
                         Main.stage.setScene(Main.LoginPage());
                 });
@@ -166,16 +220,18 @@ public class Registration {
         }
 
 
-        static public void Dialog(){
+        static public void Dialog(String s){
 
                 Stage Message_stage =new Stage();
                 DialogPane dialogPane = new DialogPane();
-                Scene Message_scene = new Scene(dialogPane,200,50);
+                Scene Message_scene = new Scene(dialogPane,220,70);
                 Message_stage.setResizable(false);
-                dialogPane.setContentText("Registered Successfully");
+                dialogPane.setContentText(s +"  Registered Successfully");
                 Message_stage.setTitle("Dialog");
                 Message_stage.setScene(Message_scene);
                 Message_stage.show();
+                dialogPane.setMinWidth(220);
+                dialogPane.setMinHeight(70);
 
                 EventHandler<WindowEvent> windowEvent= windowEvent1 -> Main.stage.setScene(Main.Main_scene);
                 Message_stage.addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST,windowEvent);
@@ -192,4 +248,10 @@ public class Registration {
      /*   public static void main(String[] args) {
         Registration();
         }*/
+
+        public static void makeUser(String username,String password
+         ,String manager,String cashier){
+
+
+        }
 }

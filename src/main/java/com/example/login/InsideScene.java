@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -16,45 +15,47 @@ import javafx.stage.Stage;
 public class InsideScene {
     public static Scene Loggedin;
 
-    public static Scene Loggedin(String username) {
+    public static Scene Loggedin(String username, String emp_type) {
 
-        Text welcomeText = new Text("Welcome, " +username+ "!");//+ CommonData.username
+        Text welcomeText = new Text("Welcome, " +username+ "!" +"\n You are "+emp_type);//+ CommonData.username
         welcomeText.setFont(new Font(40));
         welcomeText.setStyle("-fx-background-color: black; -fx-text-fill: white;");
         welcomeText.setFill(Color.WHITE);
 
-        Button POS_Btn = new Button("Order");
+
+        Button POS_Btn = new Button("POS");
         POS_Btn.setMinWidth(175);
         POS_Btn.setMinHeight(175);
         POSEventHandler(POS_Btn);
         Main.stage.setTitle("Hello User");
         POS_Btn.setStyle("-fx-background-color: rgb(255,182,193);");
 
-        Button Management_button = new Button("Management");
-        Management_button.setMinWidth(175);
-        Management_button.setMinHeight(175);
-        Management_EventHandler(Management_button);
-        Management_button.setStyle("-fx-background-color: gold;");
+        Button Inventory_button = new Button("Inventory");
+        Inventory_button.setMinWidth(175);
+        Inventory_button.setMinHeight(175);
+        Inventory_EventHandler(Inventory_button);
+        Inventory_button.setStyle("-fx-background-color: gold;");
 
-        Button Employee_btn = new Button("Employees");
-        Employee_btn.setMinWidth(175);
-        Employee_btn.setMinHeight(175);
-        Employee_EventHandler(Employee_btn);
-        Employee_btn.setStyle("-fx-background-color: silver;");
+        Button Personal_Information_btn = new Button("Personal Information");
+        Personal_Information_btn.setWrapText(true);
+        Personal_Information_btn.setMinWidth(175);
+        Personal_Information_btn.setMinHeight(175);
+        Personal_Information_EventHandler(Personal_Information_btn);
+        Personal_Information_btn.setStyle("-fx-background-color: silver;");
 
 
 
-        Button menu_btn = new Button("Menu");
+        Button menu_btn = new Button("Menu X");
         menu_btn.setMinWidth(175);
         menu_btn.setMinHeight(175);
         Menu_EventHandler(menu_btn);
         menu_btn.setStyle("-fx-background-color: lightblue;");
 
-        Button report_btn =new Button("Report");
-        report_btn.setMinWidth(175);
-        report_btn.setMinHeight(175);
-        Report_EventHandler(report_btn);
-        report_btn.setStyle("-fx-background-color: lightyellow;");
+        Button Sales_report_btn =new Button("Sales Report");
+        Sales_report_btn.setMinWidth(175);
+        Sales_report_btn.setMinHeight(175);
+        Sales_report_EventHandler(Sales_report_btn);
+        Sales_report_btn.setStyle("-fx-background-color: lightyellow;");
 
         Button administration_btn= new Button("Administration");
         administration_btn.setMinWidth(175);
@@ -63,9 +64,9 @@ public class InsideScene {
         administration_btn.setStyle("-fx-background-color: gold;");
 
 
-        HBox container1 = new HBox(POS_Btn,Management_button,Employee_btn);
-        HBox container2 = new HBox(menu_btn,report_btn,administration_btn);
-       // VBox container = new VBox(POS_Btn,Management_button,Employee_btn,menu_btn,report_btn,administration_btn);
+        HBox container1 = new HBox(POS_Btn,Inventory_button,Personal_Information_btn);
+        HBox container2 = new HBox(menu_btn,Sales_report_btn,administration_btn);
+       // VBox container = new VBox(POS_Btn,Inventory_button,Personal_Information_btn,menu_btn,Sales_report_btn,administration_btn);
         container1.setAlignment(Pos.CENTER);
         container1.setMinWidth(200);
         container1.setMinHeight(200);
@@ -95,33 +96,35 @@ public class InsideScene {
 
         root.setHgap(20);
         root.setVgap(20);
+        //root.setStyle("-fx-background-image: url(center_bg.jpeg);-fx-background-repeat: no-repeat;-fx-background-size: 1900 600;");
         root.setStyle("-fx-background-image: url(img_2.png); -fx-background-repeat: no-repeat; -fx-background-size: 1900 1000 ;   -fx-background-position: center center;");
 
-        Main.stage.setX(1);
-        Main.stage.setY(1);
+        Main.stage.setX(20);
+        Main.stage.setY(50);
 
-        return new Scene(root,1800,1000);
+        return new Scene(root,1600,900);
     }
 
 
-    public static void Management_EventHandler (Button Management){
+    public static void Inventory_EventHandler(Button Inventory_button){
 
-        Management.setOnAction(pos ->{
-            Main.stage.setScene(Management_class.getManagement_scene());
+        Inventory_button.setOnAction(pos ->{
+            Main.stage.setScene(Inventory_class.getInventory_scene());
         });
     }
 
     public static void POSEventHandler (Button POSBtn){
 
         POSBtn.setOnAction(pos ->{
+            POS_2.table.refresh();
             Main.stage.setScene(com.example.login.POS_2.getPOSScene2());
         });
     }
 
-    public static void Employee_EventHandler (Button  Employeebtn){
+    public static void Personal_Information_EventHandler(Button  Personal_Information_btn){
 
-        Employeebtn.setOnAction(pos ->{
-            Main.stage.setScene(Employeefx.getEmployee_scene());
+        Personal_Information_btn.setOnAction(pos ->{
+            Main.stage.setScene(Employee_personal_data.User_Personal_data());
         });
     }
 
@@ -137,10 +140,10 @@ public class InsideScene {
             Main.stage.setScene(Administration.getAdministration_Scene());
         });
     }
-    public static void Report_EventHandler (Button  report_btn){
+    public static void Sales_report_EventHandler(Button  Sales_report_btn){
 
-        report_btn.setOnAction(pos ->{
-            Main.stage.setScene(Report.getReport_Scene());
+        Sales_report_btn.setOnAction(pos ->{
+            Main.stage.setScene(Sales_report.getSales_Report_Scene());
         });
     }
 

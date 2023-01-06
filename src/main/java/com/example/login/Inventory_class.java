@@ -2,16 +2,13 @@ package com.example.login;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 
-public class Management_class {
+public class Inventory_class {
 
     public static Scene Mscene;
 
-    public static Scene getManagement_scene(){
+    public static Scene getInventory_scene(){
 GridPane root = new GridPane();
 Scene Managment_scene = new Scene(root,1900,1000);
 

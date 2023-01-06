@@ -11,19 +11,19 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.8.2</junit.version>
+        <junit.version>5.9.0</junit.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>18.0.1</version>
+            <version>19</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>18.0.1</version>
+            <version>19</version>
         </dependency>
 
         <dependency>
@@ -38,6 +38,46 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>dev.gitlive</groupId>
+            <artifactId>firebase-database</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>dev.gitlive</groupId>
+            <artifactId>firebase-database</artifactId>
+            <version>1.6.2</version>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>9.1.1</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.google.auth</groupId>
+            <artifactId>google-auth-library-oauth2-http</artifactId>
+            <version>1.14.0</version>
+        </dependency>
+        <dependency>
+            <groupId>stereotype</groupId>
+            <artifactId>stereotype</artifactId>
+            <version>0.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>firestore</artifactId>
+            <version>1.1.6</version>
+        </dependency>
+        <!--   <dependency>
+               <groupId>org.webjars.npm</groupId>
+               <artifactId>firestore</artifactId>
+               <version>1.1.6</version>
+           </dependency>-->
+
+
     </dependencies>
 
     <build>
@@ -73,4 +113,11 @@
             </plugin>
         </plugins>
     </build>
+    <repositories>
+        <repository>
+            <id>clojars</id>
+            <name>Clojars</name>
+            <url>https://repo.clojars.org/</url>
+        </repository>
+    </repositories>
 </project>

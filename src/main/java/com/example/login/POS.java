@@ -1,20 +1,18 @@
 package com.example.login;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 
 import java.util.ArrayList;
 
-import static com.example.login.Management_class.Back_to_Previous_Page;
 public class POS {
 
     public static Scene POS;
@@ -28,7 +26,7 @@ public class POS {
        // BorderPane root = new BorderPane();
         Scene POS = new Scene(root,1400,900,true);
         Button backbtn = new Button("Back");
-        com.example.login.Management_class.Back_to_Previous_Page(backbtn);
+        Inventory_class.Back_to_Previous_Page(backbtn);
         root.add(backbtn,1,10);
        // root.setStyle("-fx-background-image: url(bg_ps_5.jpg); -fx-background-repeat: no-repeat; -fx-background-size: 1300 1000 ;   -fx-background-position: center center;");
       root.setBackground(Background.fill(Color.gray(.3)));
@@ -73,21 +71,21 @@ public class POS {
         root.add(ChildrenMenu_btn_in_pos,2,10);
         root.add(Drinks_btn_in_pos,2,11);
 
-        Button Order_text = new Button("Order");
+        Button category = new Button("Chose Category");
+        Text category_text = new Text("Chose Category");
         Button Cashier_btn = new Button("Order");
         Button Takeaway_type_btn_in_pos = new Button("Take Away");
         Button Discount_btn_in_pos = new Button("Disc");
 
-        root.add(Order_text,8,2,2,1);
+       /* root.add(category_text,8,2,2,1);
         root.add(Cashier_btn,7,3);
         root.add(Takeaway_type_btn_in_pos,8,3);
         root.add(Discount_btn_in_pos,9,3);
+*/
 
 
 
 
-        Button search_btn = new Button("Search");
-      //  root.add(search_btn,5,1,4,1);
 
         Button Pay = new Button("Pay Now");
         root.add(Pay,8,10,3,1);
@@ -875,7 +873,7 @@ public class POS {
                 "    -fx-font-family:\"Segoe UI\", Helvetica, Arial, sans-serif;\n" +
                 "    -fx-font-size: 1em; /* 12 */\n" +
                 "    -fx-text-fill: gold;");
-        Order_text.setStyle("-fx-border-color: transparent;\n" +
+        category.setStyle("-fx-border-color: transparent;\n" +
                 "    -fx-border-width: 0;\n" +
                 "    -fx-background-radius: 0;\n" +
                 "    -fx-background-color: transparent;\n" +

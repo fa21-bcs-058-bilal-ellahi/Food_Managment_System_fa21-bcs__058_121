@@ -11,7 +11,7 @@ public class Menu {
         GridPane root = new GridPane();
         Scene Menu_scene = new Scene(root,1900,1000);
         Button backbtn = new Button("Back");
-        com.example.login.Management_class.Back_to_Previous_Page(backbtn);
+        Inventory_class.Back_to_Previous_Page(backbtn);
         root.add(backbtn,1,1);
 
         return Menu_scene;
